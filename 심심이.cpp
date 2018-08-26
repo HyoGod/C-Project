@@ -29,14 +29,13 @@ int main() {
 	while (true) {
 		teach = 0;
 
-		//INPUT
 		data(buf, user_name);                  
 		input = alloc(strlen(buf) + 1);            
 		strcpy(input, buf);                         
 
 
 
-		if (!strcmp("Àß°¡", input)) {			
+		if (!strcmp("ìž˜ê°€", input)) {			
 			break;
 		}
  		if (!strncmp(input, "/t ", 3)) {           
@@ -45,18 +44,16 @@ int main() {
 		}
  
 
-		//OUTPUT
 		strcpy(buf, search(input, teach));    
 		output = alloc(strlen(buf) + 1);            
 		strcpy(output, buf);                     
  
 
  
-		//PRINF & TEACH
 		if (strcmp(output, "")) {                   
 	
 			if (teach == 1) {                    
-				printf("ÀÌ¹Ì ½É½ÉÀÌ°¡ ¾Ë°íÀÖ½À´Ï´Ù.\n\n");
+				printf("ì´ë¯¸ ì‹¬ì‹¬ì´ê°€ ì•Œê³ ìžˆìŠµë‹ˆë‹¤.\n\n");
 				input = input - 3;                 
 			}
 			else {
@@ -67,13 +64,11 @@ int main() {
 		
 		}
 		else {                                
-			printf("½É½ÉÀÌ¿¡°Ô ´Ü¾î¸¦ ¾Ë·ÁÁÖ¼¼¿ä.\n\n");
+			printf("ì‹¬ì‹¬ì´ì—ê²Œ ë‹¨ì–´ë¥¼ ì•Œë ¤ì£¼ì„¸ìš”.\n\n");
 			teacher(input);               
 			if (teach == 1) input = input - 3;      
 		}
  
- 
-
 		free(input);
 		free(output);
 	
@@ -106,7 +101,7 @@ void line(FILE *file, int line) {
  void save(char* input, char* output, char* user_name){
 	FILE *fp;
 	fp = fopen("save.txt", "a");
-	fprintf(fp, "%s : %s \n½É½ÉÀÌ : %s\n", user_name, input, output);
+	fprintf(fp, "%s : %s \nì‹¬ì‹¬ì´ : %s\n", user_name, input, output);
 	fclose(fp);
 }
  
@@ -145,7 +140,7 @@ char* search(char *input, int teach) {
 			if (i == 1 && strlen(buf) > 3 && strstr(input, buf) != NULL) { 
 				check = 1;
 				if (teach == 0) 
-				printf("\n /t¸¦ ÅëÇØ ´äº¯À» ¸¸µå½Ç ¼ö ÀÖ½À´Ï´Ù.\n\n");
+				printf("\n /të¥¼ í†µí•´ ë‹µë³€ì„ ë§Œë“œì‹¤ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.\n\n");
 			}
  
 			if (check == 1)                       
@@ -168,7 +163,7 @@ char* search(char *input, int teach) {
  
 
 void   print_answer(char *output) { 
-	printf("SimSim :  %s\n", output);
+	printf("ì‹¬ì‹¬ì´ :  %s\n", output);
 }
  
  
@@ -179,7 +174,7 @@ void  teacher(char *input) {
 	FILE *fp;
 	fp = fopen("simsimdata.txt", "a");
  
- 	printf("¸î °¡Áö ¾Ë·ÁÁÖ½Ç°Ç°¡¿ä?\n >>");
+ 	printf("ëª‡ ê°€ì§€ ì•Œë ¤ì£¼ì‹¤ê±´ê°€ìš”?\n >>");
 	
 	scanf("%s", &buf);
 	num = atoi(buf);
@@ -197,5 +192,4 @@ void  teacher(char *input) {
  
 	fclose(fp);
 }
-
 
